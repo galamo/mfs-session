@@ -1,21 +1,30 @@
 const express = require('express');
 const app = express();
+const cors = require("cors")
 const PORT = 5000;
 app.use(express.static('public'))
 app.use((req, res, next) => {
     console.log(req.url)
     next()
 })
+app.use(cors())
 app.get("/", (req, res) => {
     res.send("static files are ready")
 })
 
 app.get("/products", (req, res, next) => {
-    res.json(products.products)
+    const p = products.products;
+    setTimeout(() => {
+        res.json(p)
+    }, 2000);
 })
 
 app.get("/cart", (req, res, next) => {
-    res.json(res.json([products.products[5], products.products[10], products.products[20]]))
+    const c = [products.products[5], products.products[10], products.products[20]]
+    setTimeout(() => {
+        res.json(c)
+    }, 2000)
+
 })
 
 app.listen(PORT, () => { console.log(`Server is listenning to Port ${PORT}`) })
