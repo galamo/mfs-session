@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const PORT = 5000;
 app.use(express.static('public'))
+app.use((req, res, next) => {
+    console.log(req.url)
+    next()
+})
 app.get("/", (req, res) => {
     res.send("static files are ready")
 })

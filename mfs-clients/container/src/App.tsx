@@ -5,10 +5,15 @@ import "./index.css";
 
 const App = () => (
   <div className="container">
-    <div>Name: container</div>
-    <div>Framework: react</div>
-    <div>Language: TypeScript</div>
-    <div>CSS: Empty CSS</div>
+    <h1> Container -   Host  </h1>
+    <div className="host">
+      <div className="mfItem">
+        Loading Products...
+      </div>
+      <div className="mfItem">
+        Loading Cart...
+      </div>
+    </div>
   </div>
 );
 ReactDOM.render(<App />, document.getElementById("app"));
